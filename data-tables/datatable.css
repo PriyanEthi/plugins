@@ -1,0 +1,56 @@
+/* Custom scrollbar styles */
+.custom-datatable-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #c1c1c1 #e0e0e0; /* For Firefox */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  margin-bottom: 10px;
+}
+
+/* WebKit browsers (Chrome, Safari) */
+.custom-datatable-container::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.custom-datatable-container::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-datatable-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #5a5a5a, #9a9a9a);
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.custom-datatable-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #444, #888);
+}
+
+/* Remove scrollbar buttons */
+.custom-datatable-container::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Edge and IE */
+.custom-datatable-container {
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* For smooth scrolling in all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+thead th {
+  cursor: pointer;
+}
+
+.sort-icon {
+  margin-left: 5px;
+  font-size: 0.8em;
+}
