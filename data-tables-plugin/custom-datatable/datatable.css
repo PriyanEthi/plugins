@@ -1,15 +1,23 @@
-/* Custom scrollbar styles */
+/*!
+ * jQuery Custom Datatable v1.0.0
+ * https://www.linkedin.com/in/priyan-ethi-062713104/
+ *
+ * Copyright 2024 Priyan
+ * Released under the MIT license
+ *
+ * Developed for customized personal usage and published for public users.
+ */
+
 .custom-datatable-container {
   overflow-x: auto;
   overflow-y: auto;
   max-height: 400px;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #c1c1c1 #e0e0e0; /* For Firefox */
-  scroll-behavior: smooth; /* Smooth scrolling */
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #e0e0e0;
+  scroll-behavior: smooth;
   margin-bottom: 10px;
 }
 
-/* WebKit browsers (Chrome, Safari) */
 .custom-datatable-container::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -31,17 +39,14 @@
   background: linear-gradient(180deg, #444, #888);
 }
 
-/* Remove scrollbar buttons */
 .custom-datatable-container::-webkit-scrollbar-button {
   display: none;
 }
 
-/* Edge and IE */
 .custom-datatable-container {
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none;
 }
 
-/* For smooth scrolling in all browsers */
 html {
   scroll-behavior: smooth;
 }

@@ -1,3 +1,13 @@
+/*!
+ * jQuery Kanban Board v1.0.0
+ * https://www.linkedin.com/in/priyan-ethi-062713104/
+ *
+ * Copyright 2024 Priyan
+ * Released under the MIT license
+ *
+ * Developed for customized personal usage and published for public users.
+ */
+
 (function ($) {
   $.fn.kanbanBoard = function (options) {
     const settings = $.extend(

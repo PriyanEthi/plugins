@@ -1,3 +1,13 @@
+/*!
+ * jQuery Custom Datatable v1.0.0
+ * https://www.linkedin.com/in/priyan-ethi-062713104/
+ *
+ * Copyright 2024 Priyan
+ * Released under the MIT license
+ *
+ * Developed for customized personal usage and published for public users.
+ */
+
 $.fn.customdatatable = function () {
   const $table = this;
   let data = [];
@@ -130,7 +140,6 @@ $.fn.customdatatable = function () {
     return name;
   }
 
-  // Event listeners
   $("#searchButton").on("click", handleSearch);
   $("#sortDropdown").on("change", function () {
     const selectedOption = $(this).val();
@@ -138,7 +147,6 @@ $.fn.customdatatable = function () {
   });
   $(document).on("click", ".pagination a", handlePageClick);
 
-  // Add click event to table headers for sorting
   $table.find("thead th").on("click", function () {
     const columnData = $(this).html();
     const column = getColumnName(columnData).toLowerCase();

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop File Upload Plugin</title>
+    <link rel="stylesheet" href="drag-drop/style.css">
+</head>
+
+<body>
+    <div id="upload-area"></div>
+    <button id="log-files-btn">Log Files to Console</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="drag-drop/icons.js"></script>
+    <script src="drag-drop/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#upload-area').dragDropUpload({
+                fileInputId: 'file-input-id',
+                maxFileCount: 5,
+                maxFileSize: 5 * 1024 * 1024,
+                dropZoneText: "Drop your files here"
+            });
+
+
+            $('#log-files-btn').click(function () {
+                var files = $('#upload-area').data('dragDropUpload').getFiles();
+                console.log('Selected files:', files);
+
+                var formData = new FormData();
+                files.forEach(file => formData.append('files[]', file));
+
+                $.ajax({
+                    url: 'upload.php',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        console.log('Files uploaded successfully:', response);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('Upload error:', textStatus, errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

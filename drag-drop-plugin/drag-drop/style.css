@@ -1,0 +1,89 @@
+/*!
+ * jQuery DragDrop FileUpload v1.0.0
+ * https://www.linkedin.com/in/priyan-ethi-062713104/
+ *
+ * Copyright 2024 Priyan
+ * Released under the MIT license
+ *
+ * Developed for customized personal usage and published for public users.
+ */
+
+.upload-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.upload-container {
+  padding: 100px;
+  position: relative;
+  cursor: pointer;
+  color: #7d7d7d !important;
+  background-color: #e3e3e3;
+  border-radius: 25px;
+}
+
+.upload-container.drag-over {
+  border-color: #333;
+  background-color: #f0f0f0;
+}
+
+.upload-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-img {
+  width: 50px;
+  height: 50px;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+#file-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+}
+
+#file-list li {
+  background: #e3e3e3;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.file-name {
+  font-size: 1em;
+  color: #3a3939;
+  margin-left: 10px;
+}
+
+.file-size {
+  font-size: 0.8em;
+  color: #666;
+  margin-left: 10px;
+}
+
+.remove-file {
+  width: 25px;
+  cursor: pointer;
+  margin-left: auto;
+}
