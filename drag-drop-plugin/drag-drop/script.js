@@ -113,11 +113,7 @@
             fileIcon.attr("src", fileIconImg);
           }
 
-          listItem
-            .append(fileIcon)
-            .append(fileName)
-            .append(fileSize)
-            .append(removeButton);
+          listItem.append(fileIcon).append(fileName).append(removeButton);
           $fileList.append(listItem);
 
           removeButton.on(
