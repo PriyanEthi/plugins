@@ -5,7 +5,7 @@ Welcome to my collection of jQuery plugins developed for customized personal usa
 ## Plugins
 
 1. **DragDrop File Uploader**
-    - ![image](https://github.com/user-attachments/assets/7b4d6681-2ede-4677-8560-d93377ea3faf)
+    - ![image](https://github.com/user-attachments/assets/047884d5-4236-41d7-a1c5-85cda42228e5)
 
 
 2. **Simple Datatable**
