@@ -16,6 +16,7 @@
         maxFileCount: Infinity,
         maxFileSize: Infinity,
         dropZoneText: "Drop files here", // Default text for drop zone
+        allowedFileTypes: null, // Array of allowed file types (extensions without dot)
       },
       options
     );
@@ -42,6 +43,7 @@
         .attr("id", settings.fileInputId || "file-input")
         .appendTo($wrapper);
       var $fileList = $('<ul id="file-list"></ul>').appendTo($wrapper);
+      var $alertList = $('<ul id="alert-list"></ul>').appendTo($wrapper); // Alert container
 
       $dropZone.on("dragover", function (e) {
         e.preventDefault();
@@ -70,7 +72,7 @@
 
       function handleFiles(files) {
         if (selectedFiles.length + files.length > settings.maxFileCount) {
-          alert(
+          showAlert(
             "You can only upload up to " + settings.maxFileCount + " files."
           );
           return;
@@ -78,11 +80,17 @@
 
         for (var i = 0; i < files.length; i++) {
           var file = files[i];
+
+          if (settings.allowedFileTypes && !isFileTypeAllowed(file)) {
+            showAlert(file.name + " is not an allowed file type.");
+            continue;
+          }
+
           if (file.size > settings.maxFileSize) {
-            alert(
+            showAlert(
               file.name +
                 " exceeds the maximum file size of " +
-                settings.maxFileSize / (1024 * 1024) +
+                (settings.maxFileSize / (1024 * 1024)).toFixed(2) +
                 " MB."
             );
             continue;
@@ -126,6 +134,25 @@
             })(file, listItem)
           );
         }
+      }
+
+      function showAlert(message) {
+        var alertItem = $("<li class='alert-item'></li>").text(message);
+        var removeAlertButton = $(
+          `<img class="remove-alert" src="${deleteIconImg}">`
+        );
+
+        alertItem.append(removeAlertButton);
+        $alertList.html(alertItem);
+
+        removeAlertButton.on("click", function () {
+          alertItem.remove();
+        });
+      }
+
+      function isFileTypeAllowed(file) {
+        var fileType = file.name.split(".").pop().toLowerCase();
+        return settings.allowedFileTypes.includes(fileType);
       }
     });
 
